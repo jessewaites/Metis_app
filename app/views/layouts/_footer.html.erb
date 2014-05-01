@@ -5,9 +5,9 @@
   </div>
   <div class="footer-links">
     <ul>
-      <li><h3>Content</h3></li>
-      <li><a href="javascript:void(0)">About</a></li>
-      <li><a href="javascript:void(0)">Contact</a></li>
+      <li><h3>Sessions</h3></li>
+      <li><%= link_to "Sign In", user_session_path %></li>
+      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
       <li><a href="javascript:void(0)">Products</a></li>
     </ul>
     <ul>

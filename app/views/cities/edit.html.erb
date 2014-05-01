@@ -1,0 +1,13 @@
+<div>
+<h1>Edit City</h1>
+</div>
+<div>
+<%= simple_form_for @city do |f| %>
+  <%= f.input :name %>
+  <%= f.input :state %>
+  <%= f.input :address %>
+  <%= f.button :submit %>
+<% end %>
+</div>
+
+<%= image_tag("building.png") %>

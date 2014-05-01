@@ -30,6 +30,8 @@ gem 'bitters'
 gem 'devise'
 gem 'gravatar_image_tag'
 gem 'placeholdit'
+gem 'simple_form'
+gem 'geocoder'
 
 group :development do
   gem 'pry-rails'

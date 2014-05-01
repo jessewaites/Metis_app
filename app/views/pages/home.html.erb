@@ -1,2 +1,4 @@
-<h2>Welcome, <%= current_user.email %></h2>
+<% if signed_in? %>
+  <h2>Welcome, <%= current_user.email %></h2>
+<% end %>  
  

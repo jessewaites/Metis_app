@@ -1,8 +1,7 @@
 <header class="navigation">
   <div class="menu-wrapper">
     <div>
-      <a href="" class="logo">
-        <%= image_tag "logo_small.png" %>
+        <%= link_to(image_tag("logo_small.png"), root_path, class: "logo") %>
       </a>
       <p class="menu-button" id="js-mobile-menu">MENU</p>
       <div class="nav">
@@ -20,11 +19,6 @@
               </div> 
             </div>
           </li>
-          <%# if user_signed_in? %>
-            <!-- <li><%= gravatar_image_tag(current_user.email, :gravatar => { :size => 40 }, :class => "avatar") %></li> -->
-          <%# else %>
-            <li class="sign-up"><a href="">Sign Up</a></li>
-          <%# end %>
         </ul>
       </div>
     </div>
