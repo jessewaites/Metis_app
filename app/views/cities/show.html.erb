@@ -1,0 +1,12 @@
+<p><%= @city.name %>, <%= @city.state %></p>
+
+<%= render 'map' %>
+
+<h2>Nearest School</h2>
+<% for location in @city.nearbys(100) %>
+  <li><%= link_to location.address, location %> (<%= location.distance %>)</li>
+<% end %>
+
+<% @city.users.each do |user| %>
+  <%= user.email %>
+<% end %>

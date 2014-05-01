@@ -9,13 +9,17 @@ class CitiesController < ApplicationController
   end
 
   def create
-    @city = City.new(cty_params)
+    @city = City.new(city_params)
     if @city.save
-      redirect_to @department
+      redirect_to @city
     else
       render :new
     end
   end
+
+  def edit
+    @city = find_city
+  end  
 
   def show
     @city = find_city
@@ -40,7 +44,7 @@ class CitiesController < ApplicationController
   private
 
   def city_params
-    params.require(:city).permit(:name, :state)
+    params.require(:city).permit(:name, :state, :address, :latitude, :longitude)
   end
   
   def find_city

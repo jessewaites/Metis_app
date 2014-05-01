@@ -1,0 +1,5 @@
+<p><%= @cohort.year %>, <%= @cohort.quarter %></p>
+
+<% @cohort.users.each do |user| %>
+  <%= user.email %>
+<% end %>

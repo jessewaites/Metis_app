@@ -1,0 +1,12 @@
+<div>
+<h1>Edit Cohort</h1>
+</div>
+<div>
+<%= simple_form_for @cohort do |f| %>
+  <%= f.input :year %>
+  <%= f.input :quarter %>
+  <%= f.button :submit %>
+<% end %>
+</div>
+
+<%= image_tag("building.png") %>

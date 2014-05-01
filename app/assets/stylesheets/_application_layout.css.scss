@@ -1,3 +1,45 @@
+.container{
+   @include perspective(1000);
+   width: 50%;
+   margin-top: 0%;
+  
+      &:hover .card{
+        cursor:pointer;
+        @include transform (rotateY(180deg));
+      }
+}
+
+.card{
+  @include transition-duration(1s);
+  @include transition-timing-function(ease);
+  @include transform-style(preserve-3d);
+    
+      p{
+       padding: 30%
+         10%;
+      }  
+}
+
+/* hide back of pane during swap */
+.front, .back {
+  @include backface-visibility(hidden);
+  position: absolute;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+  background: $blue;
+  color: $white;
+}
+
+/* back, initially hidden pane */
+.back {
+  @include transform (rotateY(180deg));
+  background: $white;
+  color: $black;
+}
+
 .avatar {
     @include media ($large-screen) {
       @include position(absolute, 0px 0px 0 0);
@@ -805,7 +847,7 @@ html, body {
   background: orange;
 }
 
-.test {
+.profile_body {
   @include span-columns(7);
 }
 

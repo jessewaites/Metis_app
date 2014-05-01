@@ -1,5 +1,11 @@
 $large-screen: 1000px;
-$visual-grid: true;
+$blue: #33ACB5;
+$white: #F1F1F1;
+$black: #3B3B3D;
+$pink: #D338AE;
+$green: #63D457;
+
+
 
 .wrapper {
   @include outer-container;
