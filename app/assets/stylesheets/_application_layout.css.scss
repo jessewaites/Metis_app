@@ -1,22 +1,7 @@
-$blue: #33ACB5;
-$white: #F1F1F1;
-$black: #3B3B3D;
-$pink: #D338AE;
-$green: #63D457;
-
-  
-body{
-  font-family: $font;
-  font-size: 17px;
-  background: $black;
-  padding-left: 1%;
-    }
-  
 .container{
    @include perspective(1000);
    width: 50%;
-   margin: 20%;
-   display: inline-block;
+   margin-top: 0%;
   
       &:hover .card{
         cursor:pointer;
@@ -28,7 +13,6 @@ body{
   @include transition-duration(1s);
   @include transition-timing-function(ease);
   @include transform-style(preserve-3d);
-  position: relative;
     
       p{
        padding: 30%
