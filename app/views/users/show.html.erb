@@ -15,8 +15,15 @@ Email: <%= @user.email %><br>
 Hometown: <%= @user.hometown %>
 <%= link_to "Add Friend", friendships_path(:friend_id => @user ), method: :post %>
 
-<h3>Friend List:</h3>
+<h3>Following:</h3>
 <div class="friends">
-  <p><% @user.friends.each do |friend| %></p>
-  <%= friend.name %>
+  <% @user.friendships.each do |friendship| %>
+  <p><%= friendship.friend.name %> | <%= link_to "Remove", friendship, method: :delete %></p>
 <% end %>
+
+<h3>Followers:</h3>
+<div class="inverse_friends">
+  <% @user.inverse_friendships.each do |added_by| %>
+  <p><%= added_by.user.name %></p>
+<% end %>
+
