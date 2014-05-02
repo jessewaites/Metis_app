@@ -1,3 +1,7 @@
+.cohort_grid {
+  @include span-columns(1);
+}
+
 .container{
    @include perspective(1000);
    width: 50%;

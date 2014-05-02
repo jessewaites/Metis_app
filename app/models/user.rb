@@ -4,5 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :city
-  belongs_to :cohort       
+  belongs_to :cohort
+  has_many :statuses      
 end
