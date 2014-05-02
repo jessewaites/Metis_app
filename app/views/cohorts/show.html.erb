@@ -1,5 +1,4 @@
-<p><%= @cohort.year %>, <%= @cohort.quarter %></p>
+<h2><%= @cohort.quarter %>, <%= @cohort.year %></h2>
 
-<% @cohort.users.each do |user| %>
-  <%= user.email %>
-<% end %>
+<%= render 'box' %>   
+

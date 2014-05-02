@@ -1,13 +1,15 @@
 <div>
-<div class="container">
-    <div class="card">
-      <div class="front">
-        <p><%= @user.email %> - If you hover over me, I will flip to the backside of the card.</p>
-      </div>
-      <div class="back">
-        <p>This is the back of the card. This is what you see when you are hovered over the card.</p>
-      </div>
-    </div>
-  </div>
+  <%= simple_form_for [current_user, @status] do |f| %>
+  <%= f.input :status %>
+  <%= f.button :submit %>
+<% end %>
 </div>
-</div>
+
+<%= @user.statuses.each do |status| %>
+  <p><%= status.status %></p>
+<% end %>
+
+<%= image_tag gravatar_image_url((@user.email), size: 150 ) %>
+
+Email: <%= @user.email %><br>
+Hometown: <%= @user.hometown %>
