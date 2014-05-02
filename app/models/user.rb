@@ -5,5 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :city
   belongs_to :cohort
-  has_many :statuses      
+  has_many :statuses
+  has_many :friendships
+  has_many :friends, through: :friendships    
 end

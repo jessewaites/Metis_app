@@ -17,4 +17,6 @@ Rails.application.routes.draw do
 
   resources :cohorts
 
+  resources :friendships, only: [:create, :destroy]
+
 end
