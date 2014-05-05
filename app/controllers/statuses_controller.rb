@@ -13,7 +13,7 @@ class StatusesController < ApplicationController
     user = User.find(params[:user_id])
     @status = user.statuses.new(status_params)
     if @status.save
-      redirect_to root_path
+      redirect_to user
     else
       render :new
     end

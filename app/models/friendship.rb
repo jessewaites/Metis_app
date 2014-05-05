@@ -2,6 +2,8 @@ class Friendship < ActiveRecord::Base
   belongs_to :user
   belongs_to :friend, class_name: "User"
   validate :cannot_follow_yourself
+  include PublicActivity::Model
+  tracked owner: ->(controller, model) { controller && controller.current_user }
 
   private
 

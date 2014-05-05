@@ -13,7 +13,7 @@
 
 Email: <%= @user.email %><br>
 Hometown: <%= @user.hometown %>
-<%= link_to "Add Friend", friendships_path(:friend_id => @user ), method: :post %>
+<%= link_to "Add Friend", friendships_path(friend_id: @user ), method: :post %>
 
 <h3>Following:</h3>
 <div class="friends">
