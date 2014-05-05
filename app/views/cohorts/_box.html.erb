@@ -1,0 +1,18 @@
+<div class="cohort_grid">
+  <% @cohort.users.each do |user| %>
+    <ul class="grid cs-style-4">
+        <li>
+            <figure>
+              <div>
+                <%= link_to image_tag gravatar_image_url((user.email), size: 250 ) %>
+              </div>  
+                <figcaption>
+                    <h3><%= user.name %></h3>
+                    <span><%= user.hometown %></span>
+                    <%= link_to 'View Profile', user %>
+                </figcaption>
+            </figure>
+        </li>
+    </ul>
+  <% end %>  
+</div>

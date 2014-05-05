@@ -1,0 +1,6 @@
+<h2>Activities</h2>
+
+<% @activities.each do |activity| %>
+  <div class="activity">
+  <%= link_to activity.owner.name, activity.owner if activity.owner %> did <%= link_to activity.trackable.status, activity.trackable.status %>
+<% end %>

@@ -32,6 +32,7 @@ gem 'gravatar_image_tag'
 gem 'placeholdit'
 gem 'simple_form'
 gem 'geocoder'
+gem 'public_activity'
 
 group :development do
   gem 'pry-rails'
