@@ -34,6 +34,7 @@ gem 'simple_form'
 gem 'geocoder'
 gem 'public_activity'
 gem 'pg_search'
+gem 'pygments.rb'
 
 group :development do
   gem 'pry-rails'
