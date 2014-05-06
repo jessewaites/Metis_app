@@ -35,6 +35,8 @@ gem 'geocoder'
 gem 'public_activity'
 gem 'pg_search'
 gem 'pygments.rb'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 
 group :development do
   gem 'pry-rails'

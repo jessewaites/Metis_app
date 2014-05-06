@@ -1,0 +1,19 @@
+<%= image_tag(("cinegraph.gif"), :class => "circular") %>
+
+<div><h1>Buy the book!</h1></div>
+<div><p>Keytar Tonx umami twee mumblecore iPhone fanny pack. Locavore tousled farm-to-table tofu, viral plaid Schlitz. Four loko cardigan before they sold out aesthetic Intelligentsia pug. Butcher PBRB kale chips, mumblecore ugh Pitchfork ethnic Brooklyn hashtag Intelligentsia asymmetrical. Retro pork belly occupy, deep v Vice +1 viral salvia 90's cred Portland mustache. American Apparel retro butcher chillwave leggings, polaroid cornhole sartorial cliche wolf Odd Future VHS shabby chic. Next level Tumblr single-origin coffee, asymmetrical gentrify jean shorts Carles four loko keffiyeh.</p></div>
+
+<h2>Buy now!</h2>
+<hr>
+<%= form_tag charges_path do %>
+<article>
+  <label class="amount">
+    <span>Amount: $5.00</span>
+  </label>
+</article>
+
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+data-description="A month's subscription"
+data-amount="500"></script>
+<% end %>

@@ -25,4 +25,6 @@ Rails.application.routes.draw do
 
   resource :admin_dashboard, only: [:show]
 
+  resources :charges
+
 end
