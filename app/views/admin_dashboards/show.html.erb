@@ -1,0 +1,25 @@
+<ul class="accordion-tabs-minimal">
+  <li class="tab-header-and-content">
+    <a href="#" class="tab-link is-active">Add City</a>
+    <section>
+      <%= simple_form_for @city do |f| %>
+        <%= f.input :name %>
+        <%= f.input :state %>
+        <%= f.input :address %>
+        <%= f.button :submit %>
+      <% end %>
+      <%= image_tag("building.png") %>
+    </section>
+  </li>
+  <li class="tab-header-and-content">
+    <a href="#" class="tab-link">Add Cohort</a>
+    <section>
+      <%= simple_form_for @cohort do |f| %>
+        <%= f.input :year %>
+        <%= f.input :quarter %>
+        <%= f.button :submit %>
+      <% end %>
+      <%= image_tag("building.png") %>
+    </section>
+  </li>
+</ul>

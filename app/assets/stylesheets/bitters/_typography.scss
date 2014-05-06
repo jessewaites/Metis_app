@@ -1,3 +1,14 @@
+h1, h2, h3, h4 { 
+  font-family: 'Squada One', cursive;
+  line-height: 1.25em;
+}
+
+p, li, a, {
+  font-family: 'Dosis', sans-serif;
+  margin: 0 0 ($base-line-height * .5);
+  color: $base-font-color;
+}
+
 body {
   color: $base-font-color;
   font-family: $base-font-family;
@@ -6,12 +17,12 @@ body {
   line-height: $base-line-height;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: $header-font-family;
-  line-height: 1.25em;
-  margin: 0;
-  text-rendering: optimizeLegibility; // Fix the character spacing for headings
-}
+// h1, h2, h3, h4, h5, h6 {
+//   font-family: $header-font-family;
+//   line-height: 1.25em;
+//   margin: 0;
+//   text-rendering: optimizeLegibility; // Fix the character spacing for headings
+// }
 
 h1 {
   font-size: $base-font-size * 2.25; // 16 * 2.25 = 36px

@@ -33,6 +33,7 @@ gem 'placeholdit'
 gem 'simple_form'
 gem 'geocoder'
 gem 'public_activity'
+gem 'pg_search'
 
 group :development do
   gem 'pry-rails'

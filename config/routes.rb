@@ -21,4 +21,8 @@ Rails.application.routes.draw do
 
   resources :activities, only: [:index]
 
+  get '/search', to: 'searches#show'
+
+  resource :admin_dashboard, only: [:show]
+
 end
