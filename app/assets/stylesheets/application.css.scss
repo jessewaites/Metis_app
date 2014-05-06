@@ -1,11 +1,13 @@
 @import "bourbon";
-$visual-grid: true;
 @import "bitters/bitters";
 @import "neat";
 @import "global";
 @import "experimental";
+@import "vertical_tabs";
 @import "application_layout";
 /*
+$visual-grid: true;
+
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -17,5 +19,4 @@ $visual-grid: true;
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_self
  */

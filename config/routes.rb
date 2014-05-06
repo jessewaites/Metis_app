@@ -23,4 +23,6 @@ Rails.application.routes.draw do
 
   get '/search', to: 'searches#show'
 
+  resource :admin_dashboard, only: [:show]
+
 end
