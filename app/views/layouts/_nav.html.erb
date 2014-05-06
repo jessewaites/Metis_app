@@ -15,12 +15,9 @@
             <div class="search-bar">
               <div class="search-and-submit">
                   <%= form_for(:search, url: search_path, method: :get, html: {class: "search"}) do |form| %>
-                  <%= form.search_field :query, placeholder: "Search Here" %>
-                  <%= form.submit "Search", name: nil, :class => 'spoof', :src => "https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" %>
+                      <%= form.search_field :query, placeholder: "Search Here" %>
+                      <%= form.submit "Search", name: nil, :class => 'spoof', :src => "https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" %>
                   <% end %>
-                <!-- <button type="submit">
-                  <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" alt="">
-                </button> -->
               </div> 
             </div>
           </li>

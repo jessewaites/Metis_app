@@ -1,11 +1,10 @@
 class FriendshipsController < ApplicationController
 
   def create
-    @user = user.friendships.find(params[:id])
+    user = user.friendships.find(params[:id])
     @friendship = current_user.friendships.build(friend_id: params[:friend_id])
     if @friendship.save
       flash[:notice] = "Added Friend."
-      send_text_message @user
       redirect_to current_user
     else
       flash[:notice] = "Unable to Add."

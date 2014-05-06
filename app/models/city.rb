@@ -1,6 +1,6 @@
 class City < ActiveRecord::Base
   include PgSearch
-  multisearchable :against => [:name]
+  multisearchable against: [:name]
   has_many :users
   has_many :cohorts
   geocoded_by :address
