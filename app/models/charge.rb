@@ -2,7 +2,7 @@ class Charge
   AMOUNT = 20000
   DESCRIPTION = 'Buy the Book'
 
-  def initialize(user,token)
+  def initialize user, token 
     @user = user
     @token = token
   end
