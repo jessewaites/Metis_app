@@ -1,6 +1,8 @@
 class Charge
   AMOUNT = 20000
   DESCRIPTION = 'Buy the Book'
+  
+  attr_reader :user, :token
 
   def initialize user, token 
     @user = user
@@ -11,8 +13,6 @@ class Charge
     customer = create_customer
     create_charge customer
   end
-
-  attr_reader :user, :token
 
   def create_customer
     Stripe::Customer.create(

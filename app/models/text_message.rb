@@ -1,7 +1,7 @@
 class TextMessage
 
-  def initialize current_user
-    @user = current_user
+  def initialize user
+    user = user
   end
 
   def send
@@ -9,7 +9,7 @@ class TextMessage
     @twilio_client.account.sms.messages.create(
       :from => ENV.fetch('twilio_phone_number'),
       :to => ENV.fetch('number_to_send_to'),
-      :body => "#{@user.name} just bought your book!"
+      :body => "#{user.name} just bought your book!"
     )
   end
 

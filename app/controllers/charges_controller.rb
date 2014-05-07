@@ -10,7 +10,7 @@ class ChargesController < ApplicationController
     current_user.save
     message = TextMessage.new(current_user)
     message.send
-    redirect_to book_downloads_path
     flash[:notice] = "Thank you for your purchase!"
+    redirect_to book_downloads_path
   end
 end  
