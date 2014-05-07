@@ -36,6 +36,7 @@ gem 'public_activity'
 gem 'pg_search'
 gem 'pygments.rb'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'twilio-ruby'
 
 
 group :development do
