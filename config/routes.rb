@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   resource :admin_dashboard, only: [:show]
 
-  resources :charges
+  resources :charges, only: [:new, :create]
+
+  resource :book_downloads, only: [:show]
 
 end
