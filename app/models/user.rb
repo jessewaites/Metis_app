@@ -3,8 +3,9 @@ class User < ActiveRecord::Base
   multisearchable against: [:name]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :invitable, :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable,
+         :confirmable, :invitable
   belongs_to :city
   belongs_to :cohort
   has_many :statuses

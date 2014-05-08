@@ -37,6 +37,7 @@ gem 'pg_search'
 gem 'pygments.rb'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'twilio-ruby'
+gem 'devise_invitable'
 
 
 group :development do
