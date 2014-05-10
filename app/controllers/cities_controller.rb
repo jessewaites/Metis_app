@@ -1,4 +1,5 @@
 class CitiesController < ApplicationController
+  before_action :find_city, only: [:edit, :show, :update, :destroy]
 
   def index
     @cities = City.all
@@ -18,16 +19,13 @@ class CitiesController < ApplicationController
   end
 
   def edit
-    @city = find_city
   end  
 
   def show
-    @city = find_city
     @users = @city.users
   end
 
   def update
-    @city = find_city
     if @city.update(city_params)
       redirect_to @city
     else
@@ -36,7 +34,6 @@ class CitiesController < ApplicationController
   end
 
   def destroy
-    city = find_city
     city.destroy
     redirect_to cities_path
   end

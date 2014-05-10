@@ -1,4 +1,5 @@
 class StatusesController < ApplicationController
+  before_action :find_status, only: [:edit, :show, :update, :destroy]
 
   def index
     @status = Status.all
@@ -10,7 +11,7 @@ class StatusesController < ApplicationController
   end
 
   def create
-    user = User.find(params[:user_id])
+    user = current_user
     @status = user.statuses.new(status_params)
     if @status.save
       redirect_to user
@@ -20,16 +21,12 @@ class StatusesController < ApplicationController
   end
 
   def edit
-    @status = find_status
   end  
 
   def show
-    @status = find_status
-    @users = @cohort.users
   end
 
   def update
-    @status = find_status
     if @status.update(status_params)
       redirect_to @user
     else
@@ -38,19 +35,18 @@ class StatusesController < ApplicationController
   end
 
   def destroy
-    status = find_status
-    status.destroy
+    @status.destroy
     redirect_to root_path
   end
 
   private
 
   def status_params
-    params.require(:status).permit(:status)
+    params.require(:status).permit(:text)
   end
   
   def find_status
-    Status.find(params[:id])
+    @status = Status.find(params[:id])
   end  
 
 end

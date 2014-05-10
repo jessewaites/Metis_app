@@ -1,6 +1,6 @@
 class Charge
   AMOUNT = 20000
-  DESCRIPTION = 'Buy the Book'
+  DESCRIPTION = 'Jesses Book'
   
   attr_reader :user, :token
 

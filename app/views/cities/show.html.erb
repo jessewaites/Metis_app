@@ -1,12 +1,28 @@
-<p><%= @city.name %>, <%= @city.state %></p>
+<h1><%= @city.name %>, <%= @city.state %></h1>
 
 <%= render 'map' %>
 
-<h2>Nearest School</h2>
-<% for location in @city.nearbys(100) %>
-  <li><%= link_to location.address, location %> (<%= location.distance %>)</li>
-<% end %>
+<h2><%= @city.address %></h2>
 
 <% @city.users.each do |user| %>
-  <%= user.email %>
+  <ul><%= link_to user.name, user %></ul>
 <% end %>
+
+<div class="cohort_grid">
+  <% @city.users.each do |user| %>
+    <ul class="grid cs-style-4">
+        <li>
+            <figure>
+              <div>
+                <%= link_to image_tag gravatar_image_url((user.email), size: 250 ) %>
+              </div>  
+                <figcaption>
+                    <h3><%= user.name %></h3>
+                    <span><%= user.hometown %></span>
+                    <%= link_to 'View Profile', user %>
+                </figcaption>
+            </figure>
+        </li>
+    </ul>
+  <% end %>  
+</div>

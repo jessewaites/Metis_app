@@ -1,22 +1,36 @@
-<%= image_tag(("cinegraph.gif"), :class => "circular") %>
-
-<div><h1>Welcome to the Metis App.</h1></div>
+<%= image_tag("tech.png") %>
+<h1>Welcome to the Metis App.</h1>
 <div><p>Keytar Tonx umami twee mumblecore iPhone fanny pack. Locavore tousled farm-to-table tofu, viral plaid Schlitz. Four loko cardigan before they sold out aesthetic Intelligentsia pug. Butcher PBRB kale chips, mumblecore ugh Pitchfork ethnic Brooklyn hashtag Intelligentsia asymmetrical. Retro pork belly occupy, deep v Vice +1 viral salvia 90's cred Portland mustache. American Apparel retro butcher chillwave leggings, polaroid cornhole sartorial cliche wolf Odd Future VHS shabby chic. Next level Tumblr single-origin coffee, asymmetrical gentrify jean shorts Carles four loko keffiyeh.</p></div>
 
-<%= link_to "Invite", new_user_invitation_path %>
+<%= image_tag(("cinegraph.gif"), :class => "circular") %>
 
 <div><p>1234567890 Portland drinking vinegar Bushwick, tousled four loko pour-over PBR Tonx Truffaut pork belly High Life post-ironic raw denim deep v kale chips. Crucifix kitsch Carles plaid, Truffaut Tumblr whatever. Authentic cliche next level, farm-to-table blog master cleanse Shoreditch sustainable flexitarian wolf pickled Brooklyn craft beer tote bag. Crucifix seitan Vice, wolf roof party bitters occupy banjo swag master cleanse. Schlitz cliche small batch bespoke, viral cardigan ennui selvage Odd Future meggings food truck Cosby sweater slow-carb Bushwick messenger bag. Pop-up PBR&B jean shorts YOLO Thundercats. Biodiesel DIY post-ironic, street art scenester brunch put a bird on it chambray semiotics typewriter quinoa.</p></div>
+
+<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <div class="front">
+    </div>
+    <div class="back">
+      <div class="back-logo"></div>
+      <p>Full-Stack Ruby on Rails developer with over 2 years of mobile/web experience. UI/UX Nerd. Reader of Vintage Detective novels. I also like dogs a lot.</p>
+    </div>
+  </div>
+</div>
+
+<a href='http://www.moongate.ro/products/qr_code-vcard/serve_card?c=05KNq8&type=vcf'>Download my contact information directly into your smartphone.</a>
+
 <div><h3>Brooklyn Craft Beer.</h3></div>
 <div><p>Keytar Tonx umami twee mumblecore iPhone fanny pack. Locavore tousled farm-to-table tofu, viral plaid Schlitz. Four loko cardigan before they sold out aesthetic Intelligentsia pug. Butcher PBR&B kale chips, mumblecore ugh Pitchfork ethnic Brooklyn hashtag Intelligentsia asymmetrical. Retro pork belly occupy, deep v Vice +1 viral salvia 90's cred Portland mustache. American Apparel retro butcher chillwave leggings, polaroid cornhole sartorial cliche wolf Odd Future VHS shabby chic. Next level Tumblr single-origin coffee, asymmetrical gentrify jean shorts Carles four loko keffiyeh.</p></div>
 
+
 <%= raw Pygments.highlight("
-             group :development do
-              gem 'pry-rails'
-              gem 'quiet_assets'
-              gem 'bullet'
-              gem 'spring'
-              gem 'letter_opener'
-             end", 
-                                  lexer: 'ruby') %>
+ group :development do
+  gem 'pry-rails'
+  gem 'quiet_assets'
+  gem 'bullet'
+  gem 'spring'
+  gem 'letter_opener'
+end", 
+lexer: 'ruby') %>
 
 <div><p>Portland drinking vinegar Bushwick, tousled four loko pour-over PBR Tonx Truffaut pork belly High Life post-ironic raw denim deep v kale chips. Crucifix kitsch Carles plaid, Truffaut Tumblr whatever. Authentic cliche next level, farm-to-table blog master cleanse Shoreditch sustainable flexitarian wolf pickled Brooklyn craft beer tote bag. Crucifix seitan Vice, wolf roof party bitters occupy banjo swag master cleanse. Schlitz cliche small batch bespoke, viral cardigan ennui selvage Odd Future meggings food truck Cosby sweater slow-carb Bushwick messenger bag. Pop-up PBR&B jean shorts YOLO Thundercats. Biodiesel DIY post-ironic, street art scenester brunch put a bird on it chambray semiotics typewriter quinoa.</p></div>

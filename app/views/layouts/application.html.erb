@@ -7,11 +7,42 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="js-menu-screen menu-screen"></div>
+<nav class="js-menu sliding-menu-content">
+  <ul>
+    <li><%= link_to(image_tag("logo_small.png"), root_path, class: "logo") %></li>
+    <% if current_user.present? %>
+    <li><%= link_to (image_tag gravatar_image_url((current_user.email), size: 35 )), current_user %></li>
+    <li><a href="javascript:void(0)">Followers: <%= current_user.friends.count %></a></li>
+    <% end %>
+    <li><%= link_to "Buy the Book", new_charge_path %></li></li>
+    <% if current_user && current_user.admin = true %>
+    <li><%= link_to "Admin", admin_dashboard_path %></li>
+    <% end %>
+  </ul>
+</nav>
 <%= render "layouts/nav" %>
 <%= render "layouts/flash_messages" %>
 <div class="page-wrap">
-<%= yield %>
-</div>
+       <%= yield %>
 <%= render "layouts/footer" %>
+
 </body>
 </html>
+
+<script>
+  $(document).ready(function(){
+
+    $('.js-menu-trigger').on('click touchstart', function(e){
+      $('.js-menu').toggleClass('is-visible');
+      $('.js-menu-screen').toggleClass('is-visible');
+      e.preventDefault();
+    });
+
+    $('.js-menu-screen').on('click touchstart', function(e){
+      $('.js-menu').toggleClass('is-visible');
+      $('.js-menu-screen').toggleClass('is-visible');
+      e.preventDefault();
+    });
+  });
+</script>

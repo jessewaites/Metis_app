@@ -1,0 +1,18 @@
+<div class="profile-box-show">
+    <ul class="grid cs-style-7">
+      <li class="box-left">
+        <figure>
+          <div>
+            <%= link_to image_tag gravatar_image_url((user.email), size: 400 ) %>
+          </div>  
+          <figcaption>
+            <% if current_user != user %>
+              <%= link_to "Add Friend", friendships_path(friend_id: user ), method: :post %>
+            <% else %>
+              <a href="#">You look great!</a>
+            <% end %>
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+  </div>

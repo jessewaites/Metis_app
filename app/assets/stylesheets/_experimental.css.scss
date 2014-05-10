@@ -18,6 +18,7 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 .clearfix:before, .clearfix:after { content: " "; display: table; }
 .clearfix:after { clear: both; }
 
+
 .circular {
   width: 300px;
   height: 300px;
@@ -153,7 +154,7 @@ a:active {
 }
 
 .grid {
-  padding: 20px 20px 100px 20px;
+  padding: 20px 20px 14px 20px;
   max-width: 1300px;
   margin: 0 auto;
   list-style: none;

@@ -1,0 +1,19 @@
+.six {
+@include span-columns(6);
+}
+
+// .primary-container {
+//   @include outer-container;
+// }
+
+// .twelve {
+//   @include span-columns(12);
+// }
+
+.box-left {
+  float: left;
+}
+
+.tall {
+  height: 550px;
+}
