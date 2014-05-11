@@ -21,6 +21,7 @@
   <% end %>
   <hr>
   <% end %>
+  <%= link_to "Next Page", @repos.links.next %>
 </div>
 
 
@@ -43,6 +44,6 @@
   <h3>Followers:</h3>
   <div class="inverse_friends">
     <% @user.inverse_friendships.each do |added_by| %>
-    <p><%= added_by.user.name %></p>
+    <p><%= link_to added_by.user.name, added_by.user %></p>
     <% end %>
   </div>

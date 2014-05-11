@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @status  = Status.new
-    @repos = Github.repos.list user: 'jsteiner'
+    @repos = Github.repos.list user: @user.github_username, per_page: 5
     #@repos = repos.select { |r| r.fork == true }
   end
 
