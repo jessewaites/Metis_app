@@ -2,10 +2,12 @@
 
 <div class="six">
   <%= simple_form_for [current_user, @status] do |f| %>
-  <%= f.input :text %>
+  <%= f.input :text, :ng => {:model => "newEntry.name"} %>
   <%= f.button :submit %>
+  {{newEntry.name}}
   <% end %>
 </div>
+
 
 <p>Hometown: <%= @user.hometown %></p>
 
