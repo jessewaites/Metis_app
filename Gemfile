@@ -38,6 +38,7 @@ gem 'pygments.rb'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'twilio-ruby'
 gem 'devise_invitable'
+gem 'github_api'
 
 
 group :development do

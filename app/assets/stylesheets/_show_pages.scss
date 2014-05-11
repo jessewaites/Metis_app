@@ -1,0 +1,16 @@
+.six {
+@include span-columns(6);
+}
+
+.box-left {
+  float: left;
+}
+
+.tall {
+  height: 550px;
+}
+
+.github {
+  @include span-columns(6);
+  float: left;
+}

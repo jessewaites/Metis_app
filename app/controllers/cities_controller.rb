@@ -1,5 +1,5 @@
 class CitiesController < ApplicationController
-
+  
   def index
     @cities = City.all
   end
@@ -36,7 +36,7 @@ class CitiesController < ApplicationController
   end
 
   def destroy
-    city = find_city
+    @city = find_city
     city.destroy
     redirect_to cities_path
   end

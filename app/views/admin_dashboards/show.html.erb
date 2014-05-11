@@ -1,3 +1,4 @@
+<div>
 <ul class="accordion-tabs-minimal">
   <li class="tab-header-and-content">
     <a href="#" class="tab-link is-active">Add City</a>
@@ -22,4 +23,45 @@
       <%= image_tag("building.png") %>
     </section>
   </li>
+  <li class="tab-header-and-content">
+    <a href="#" class="tab-link">Invite User</a>
+    <section>
+      <h2><%= t "devise.invitations.new.header" %></h2>
+
+<%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
+  <%= devise_error_messages! %>
+
+<% resource.class.invite_key_fields.each do |field| -%>
+  <%= f.input field %>
+<% end -%>
+
+<%= f.submit t("devise.invitations.new.submit_button") %>
+<% end %>
+      <%= image_tag("building.png") %>
+    </section>
+  </li>
 </ul>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $('.accordion-tabs-minimal').each(function(index) {
+      $(this).children('li').first().children('a').addClass('is-active').next().addClass('is-open').show();
+    });
+
+    $('.accordion-tabs-minimal').on('click', 'li > a', function(event) {
+      if (!$(this).hasClass('is-active')) {
+        event.preventDefault();
+        var accordionTabs = $(this).closest('.accordion-tabs-minimal')
+        accordionTabs.find('.is-open').removeClass('is-open').hide();
+
+        $(this).next().toggleClass('is-open').toggle();
+        accordionTabs.find('.is-active').removeClass('is-active');
+        $(this).addClass('is-active');
+      } else {
+        event.preventDefault();
+      }
+    });
+  });
+</script>
+

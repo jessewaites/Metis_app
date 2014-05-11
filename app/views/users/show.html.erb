@@ -1,29 +1,48 @@
-<div>
+<%= render 'profile_box', user: @user %>
+
+<div class="six">
   <%= simple_form_for [current_user, @status] do |f| %>
-  <%= f.input :status %>
+  <%= f.input :text %>
   <%= f.button :submit %>
-<% end %>
+  <% end %>
 </div>
 
-<%= @user.statuses.each do |status| %>
-  <p><%= status.status %></p>
-<% end %>
+<p>Hometown: <%= @user.hometown %></p>
 
-<%= image_tag gravatar_image_url((@user.email), size: 150 ) %>
+<div class="github">
+  <h3>Github Repositories</h3>
+  <hr>
+  <% @repos.each do |repo| %>
+  <p>Name:  <strong><%= link_to repo.name, repo.html_url %></strong></p>
+  <p>Language: <%= repo.language %></p>
+  <p>Description: <%= repo.description %></p>
+  <% if repo.fork %>
+  <div><p><%= image_tag("http://www.iconpng.com/png/font_awesome/f126.png", size: "50x50") %>* Note: This is a fork of a pre-existing repository.</p></div>
+  <% end %>
+  <hr>
+  <% end %>
+</div>
 
-Email: <%= @user.email %><br>
-Hometown: <%= @user.hometown %>
-<%= link_to "Add Friend", friendships_path(friend_id: @user ), method: :post %>
+
+<div class="tall">
+  <% @user.statuses.each do |status| %>
+  <p><%= link_to status.text, user_status_path(@user, status) %></p>
+  <% end %>
+</div>
 
 <h3>Following:</h3>
 <div class="friends">
   <% @user.friendships.each do |friendship| %>
-  <p><%= friendship.friend.name %> | <%= link_to "Remove", friendship, method: :delete %></p>
-<% end %>
+  <p><%= link_to friendship.friend.name, friendship.friend %>
+    <% if current_user == @user %> 
+    | <%= link_to "Remove", friendship, method: :delete %></p>
+    <% end %>
+    <% end %>
+  </div>  
 
-<h3>Followers:</h3>
-<div class="inverse_friends">
-  <% @user.inverse_friendships.each do |added_by| %>
-  <p><%= added_by.user.name %></p>
-<% end %>
-
+  <h3>Followers:</h3>
+  <div class="inverse_friends">
+    <% @user.inverse_friendships.each do |added_by| %>
+    <p><%= added_by.user.name %></p>
+    <% end %>
+  </div>

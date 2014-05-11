@@ -9,7 +9,10 @@
         <ul id="navigation-menu">
           <li><%= link_to "Cities", cities_path %></li>
           <li><%= link_to "Cohorts", cohorts_path %></li>
-          <li><%= link_to "Admin", admin_dashboard_path %></li>
+          <% if current_user.present? %>
+          <li><button type="button" class="js-menu-trigger sliding-menu-button">
+            <img src="http://icons.iconarchive.com/icons/rade8/minium-2/256/General-Get-Info-icon.png" alt=""></button></li>
+          <% end %>  
           <li><%= link_to "About", page_path('about') %></li>
           <li class="navigation-search-bar">
             <div class="search-bar">

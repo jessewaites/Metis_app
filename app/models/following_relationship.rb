@@ -15,4 +15,6 @@ class FollowingRelationship < ActiveRecord::Base
       errors.add(:base, "You can't follow yourself, yo")
     end
   end
+
+ 
 end
