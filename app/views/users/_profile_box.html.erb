@@ -9,9 +9,9 @@
           <h3><%= user.name %></h3>
           <span><%= user.hometown %></span>
           <% if current_user != user %>
-          <%= link_to "Add Friend", friendships_path(friend_id: user ), method: :post %>
+            <%= link_to "Add Friend", friendships_path(friend_id: user ), method: :post %>
           <% else %>
-          <a href="#">You look great!</a>
+            <a href="#">You look great!</a>
           <% end %>
         </figcaption>
       </figure>

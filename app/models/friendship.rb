@@ -12,8 +12,5 @@ class Friendship < ActiveRecord::Base
       errors.add(:base, "You can't follow yourself.")
     end
   end
-
-      
-
-
+  
 end
