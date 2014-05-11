@@ -13,20 +13,23 @@
   <h3>Github Repositories</h3>
   <hr>
   <% @repos.each do |repo| %>
-  <p>Name:  <strong><%= link_to repo.name, repo.html_url %></strong></p>
-  <p>Language: <%= repo.language %></p>
-  <p>Description: <%= repo.description %></p>
-  <% if repo.fork %>
-  <div><p><%= image_tag("http://www.iconpng.com/png/font_awesome/f126.png", size: "50x50") %>* Note: This is a fork of a pre-existing repository.</p></div>
+    <p>Name:  <strong><%= link_to repo.name, repo.html_url %></strong></p>
+    <p>Language: <%= repo.language %></p>
+    <p>Description: <%= repo.description %></p>
+    <% if repo.fork %>
+      <div>
+        <p><%= image_tag("http://www.iconpng.com/png/font_awesome/f126.png", size: "50x50") %>* Note: This is a fork of a pre-existing repository.</p>
+      </div>
+    <% end %>
+    <hr>
   <% end %>
-  <hr>
-  <% end %>
+  <%= link_to "Next Page", @repos.links.next %>
 </div>
 
 
 <div class="tall">
   <% @user.statuses.each do |status| %>
-  <p><%= link_to status.text, user_status_path(@user, status) %></p>
+    <p><%= link_to status.text, user_status_path(@user, status) %></p>
   <% end %>
 </div>
 
@@ -37,12 +40,12 @@
     <% if current_user == @user %> 
     | <%= link_to "Remove", friendship, method: :delete %></p>
     <% end %>
-    <% end %>
-  </div>  
+  <% end %>
+</div>  
 
-  <h3>Followers:</h3>
-  <div class="inverse_friends">
-    <% @user.inverse_friendships.each do |added_by| %>
-    <p><%= added_by.user.name %></p>
-    <% end %>
-  </div>
+<h3>Followers:</h3>
+<div class="inverse_friends">
+  <% @user.inverse_friendships.each do |added_by| %>
+    <p><%= link_to added_by.user.name, added_by.user %></p>
+  <% end %>
+</div>
