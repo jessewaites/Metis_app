@@ -1,5 +1,4 @@
 class CohortsController < ApplicationController
-  before_action :find_cohort, only: [:edit, :show, :update, :destroy]
 
   def index
     @cohorts = Cohort.all
@@ -19,13 +18,16 @@ class CohortsController < ApplicationController
   end
 
   def edit
+    @cohort = find_cohort
   end  
 
   def show
+    @cohort = find_cohort
     @users = @cohort.users
   end
 
   def update
+    @cohort = find_cohort
     if @cohort.update(cohort_params)
       redirect_to @cohort
     else
@@ -34,6 +36,7 @@ class CohortsController < ApplicationController
   end
 
   def destroy
+    cohort = find_cohort
     cohort.destroy
     redirect_to cohorts_path
   end
