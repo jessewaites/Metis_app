@@ -1,0 +1,7 @@
+said
+<% if activity.trackable %>
+  <strong><%= activity.trackable %></strong>
+  on <%= link_to activity.trackable, activity.trackable.friend.name %>
+<% else %>
+  on a deleted task
+<% end %>

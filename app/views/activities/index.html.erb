@@ -1,6 +1,9 @@
-<h2>Activities</h2>
-
+<h1>Friend's Activities</h1>
 <% @activities.each do |activity| %>
   <div class="activity">
-  <%= link_to activity.owner.name, activity.owner if activity.owner %> did <%= link_to activity.trackable.status, activity.trackable.status %>
+    <% if activity.owner %>
+      <%= link_to activity.owner.name, [activity.owner] %>
+      <%= render_activities(activity) %>
+    <% end %>
+  </div>
 <% end %>

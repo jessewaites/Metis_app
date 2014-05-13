@@ -2,13 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, :only => [:show] do
-    resources :statuses
+    member do
+      post "follow" => "friendships#create"
+      delete "unfollow" => "friendships#destroy"
   end
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  resources :statuses
+  end
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
   HighVoltage.configure do |config|
     config.home_page = 'home'
   end
@@ -16,8 +16,6 @@ Rails.application.routes.draw do
   resources :cities
 
   resources :cohorts
-
-  resources :friendships, only: [:create, :destroy]
 
   resources :activities, only: [:index]
 
