@@ -4,10 +4,10 @@
 <%= devise_error_messages! %>
 
 <div><%= f.label :name %><br />
-  <%= f.text_field :name, autocomplete: "off" %></div>
+  <%= f.text_field :name, autofocus: true, autocomplete: "on" %></div>
 
 <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <%= f.email_field :email, autocomplete: "on" %></div>
 
 <div><%= f.label :github_username %><br />
   <%= f.text_field :github_username, autocomplete: "off" %></div>

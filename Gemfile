@@ -23,6 +23,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
+
 gem 'high_voltage', '~> 2.1.0'
 gem 'bourbon'
 gem 'neat'
@@ -35,10 +36,12 @@ gem 'geocoder'
 gem 'public_activity'
 gem 'pg_search'
 gem 'pygments.rb'
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
 gem 'twilio-ruby'
 gem 'devise_invitable'
 gem 'github_api'
+gem 'chartkick'
+gem 'groupdate'
 
 
 group :development do
@@ -46,12 +49,24 @@ group :development do
   gem 'quiet_assets'
   gem 'bullet'
   gem 'spring'
-  gem 'letter_opener'
 end
 
 group :production do
   gem 'rails_12factor'
 end
+
+group :deveopment, :test do 
+  gem 'rspec-rails', '~> 2.14.0'
+  gem 'factory_girl_rails', '~> 4.2.1'
+end
+
+group :test do 
+  gem 'faker', '~> 1.1.2'
+  gem 'capybara', '~> 2.1.0'
+  gem 'database_cleaner', '~> 1.0.1'
+  gem 'launchy', '~> 2.3.0'
+  gem 'selenium-webdriver', '~> 2.35.1'
+end  
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

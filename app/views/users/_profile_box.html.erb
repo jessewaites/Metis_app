@@ -1,20 +1,23 @@
-<div class="profile-box-show">
-  <ul class="grid cs-style-7">
-    <li class="box-left">
-      <figure>
-        <div>
-          <%= link_to image_tag gravatar_image_url((user.email), size: 400 ) %>
-        </div>  
-        <figcaption>
-          <h3><%= user.name %></h3>
-          <span><%= user.hometown %></span>
-          <% if current_user != user %>
-            <%= link_to "Add Friend", friendships_path(friend_id: user ), method: :post %>
-          <% else %>
-            <a href="#">You look great!</a>
-          <% end %>
-        </figcaption>
-      </figure>
-    </li>
-  </ul>
-</div>
+<ul class="grid cs-style-7">
+  <li class="box-left">
+    <figure>
+      <div>
+        <%= link_to image_tag gravatar_image_url((user.email), size: 400 ) %>
+      </div>
+      <figcaption>
+          <%= link_to "Email #{user.name}", "mailto: #{user.email}"  %>  
+      </figcaption>
+    </figure>
+    <br>
+    <h1><%= user.name %></h1>
+    <span>From <%= user.hometown %></span>
+    <% if current_user != user %>
+      <% if current_user.friends? user %>
+        <%= button_to "Unfollow #{user.name}",
+          unfollow_user_path(user), method: :delete %>
+      <% else %>
+        <%= button_to "Follow #{user.name}", follow_user_path(user), method: :post %>
+      <% end %>
+    <% end %>
+  </li>
+</ul>

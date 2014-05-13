@@ -1,9 +1,21 @@
-.six {
-@include span-columns(6);
+.page-wrap {
+  @include outer-container;
 }
 
-.box-left {
-  float: left;
+.top {
+  margin-top: 34px;
+}
+
+.left {
+  @include span-columns(5);
+  border: 1px blue solid;
+  // margin-top: -582px;
+}
+
+.right {
+  @include span-columns(7);
+  @include omega();
+  border: 1px lime solid;
 }
 
 .tall {
@@ -11,6 +23,18 @@
 }
 
 .github {
-  @include span-columns(6);
-  float: left;
+@include span-columns(7);
+float: left;
+display: block;
+margin-right: 8.35765%;
+width: 48.82117%;
+float: right;
+}
+
+.friends {
+  float: top;
+}
+
+.follow {
+  border-right: 20px;
 }
