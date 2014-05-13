@@ -1,1 +1,1 @@
-<p><%= @status.user.name %> said <%= @status.text %> </p>
+<p><%= link_to @status.user.name, user %> said <%= link_to @status.text, user.status %> </p>
