@@ -1,1 +1,4 @@
-_destroy.html.erb
+unfollowed
+<% if activity.trackable %>
+  <strong> <%= link_to activity.trackable.friend_id, activity.trackable.friend %></strong>
+<% end %>

@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe User do
   it "has a valid factory" do
@@ -28,11 +29,11 @@ describe User do
       password: '11111111',
       github_username: 'piratebroadcast',
       email: 'learningisfun@metis.com')
-    user = User.new(
+    user = User.create(
       name: 'Betty',
       cell_number: '2222222222',
       password: '11113431111',
-      github_username: 'piratebroadcast',
+      github_username: 'pirate',
       email: 'learningisfun@metis.com')
     expect(user).to have(1).errors_on(:email)
   end

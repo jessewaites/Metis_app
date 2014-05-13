@@ -13,10 +13,10 @@ class User < ActiveRecord::Base
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
   has_many :inverse_friends, through: :inverse_friendships, source: :user
 
-  validates_presence_of :name
-  validates_presence_of :email
-  validates_presence_of :cell_number
-  validates_presence_of :github_username
+  validates :name, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+  validates :cell_number, presence: true, uniqueness: true
+  validates :github_username, presence: true
 
   def friends? other_user
     friend_ids.include? other_user.id
