@@ -1,4 +1,7 @@
 unfollowed
 <% if activity.trackable %>
-  <strong> <%= link_to activity.trackable.friend_id, activity.trackable.friend %></strong>
+  <strong> <%= link_to activity.trackable.friend.name, activity.trackable.friend %></strong>
+<% else %>
+  a user that has been removed.
 <% end %>
+

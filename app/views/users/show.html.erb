@@ -19,7 +19,7 @@
   <hr>
   <h3>Recent Statuses:</h3>
   <% @user.statuses.each do |status| %>
-    <p><%= link_to status.text, user_status_path(@user, status) %></p>
+    <p><%= status.text %></p>
   <% end %>
   <hr>
   <h3>Followers:</h3>

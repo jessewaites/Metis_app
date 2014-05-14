@@ -1,4 +1,6 @@
 <h2>Members in which cities:<h2>
-<%= pie_chart User.group(:city_id).count %>
+<%= pie_chart City.users.group(:name).count %>
 <h2>Number of users in each cohort:</h2>
-<%= line_chart Status.group_by_week(:created_at).count %>
+<%= line_chart User.group(:created_at).count %>
+
+<%= column_chart User.group_by_hour_of_day(:created_at, format: "%l %P").count %>
