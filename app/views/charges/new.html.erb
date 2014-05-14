@@ -1,9 +1,6 @@
 <h2>Buy now!</h2>
-
-<%= image_tag("book_cover.png") %>
-
+<div class="stripe-button"
 <%= form_tag charges_path do %>
-
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
 data-description="Buy the book!"
@@ -15,3 +12,9 @@ data-amount="500"></script>
   </label>
 </article>
 <% end %>
+</div>
+
+<div class="video">
+<iframe width="853" height="480" src="//www.youtube.com/embed/81Y5hSkbRiQ?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+

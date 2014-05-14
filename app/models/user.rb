@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
-  validates :cell_number, presence: true, uniqueness: true
+  validates :cell_number, presence: true
   validates :github_username, presence: true
 
   def friends? other_user
