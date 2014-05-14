@@ -2,7 +2,7 @@ class BookDownloadsController < ApplicationController
   before_filter :book_purchase_dispatch
 
   def show
-    send_file 'SecretsOfMyAppSuccess.pdf', :disposition => 'inline'
+    send_file 'SecretsOfMyAppSuccess.pdf', disposition: 'inline'
   end
 
   private
