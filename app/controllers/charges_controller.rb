@@ -3,7 +3,7 @@ class ChargesController < ApplicationController
   def new
   end
   
-  def create
+  def create  
     charge = Charge.new(current_user, params[:stripeToken])
     charge.process
     current_user.purchased_book = true

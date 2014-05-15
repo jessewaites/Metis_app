@@ -1,5 +1,5 @@
 <h2>Buy now!</h2>
-<div class="stripe-button"
+<div class="stripe-button">
 <%= form_tag charges_path do %>
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -17,4 +17,6 @@ data-amount="500"></script>
 <div class="video">
 <iframe width="853" height="480" src="//www.youtube.com/embed/81Y5hSkbRiQ?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
+
+
 

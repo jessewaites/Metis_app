@@ -1,27 +1,43 @@
 == Welcome to the Metis app.
 
-Here is a list of technologies, dependencies, and features I used or built.
+One part Social Network...
 
-About this app:
+Metis App is a social network for Metis alumni and other invited people- It was built in Rails 4 with a Postgres database, with the front-end being the thoughtbot front-end design suite (Bourbon, Bitters, and the Neat grid framework). Authentication comes courtesy of the Devise gem. Why did I choose Devise? With the Devise "Acts and Invitable" extension, site Admins can easily invite other Users to the network. There was also a time when I considered using Oauth Github authentication and Devise would also afford me that functionality if I were to choose to use it. Using Devise was a good engineering decision because gave me the most options going forward and was mostly future-proof.
 
-* Ruby version
+One part Ecommerce.
 
-* System dependencies
+Using the Gravitar gem, I was able to display user profile pictures, and asking for the User's Github username allows me to display their Github repositories on their User Show page. I was originally being rate limited through the Github API so I had to authenticate my particular app. That whole process took around 20 minutes, no big deal. Upon registration, Users can also select the City and Cohort they were a part of, and are grouped together in the City and Cohort show pages. Users can follow other Users and have access to an activity feed where they can see the status updates of everyone they follow.
 
-* Configuration
+After a User is logged in, a sidebar navigation panel appears. This sidebar gives the User access to their own Show page, as well as session options and a link to "Buy The Book". Once clicked, the User is taken to the New Charges Path and is prompted to check out. The check-out process is handled by Stripe. Upon confirmation of a successful transaction, a new TextMessage instance is created from that model and a message is sent to the current_users cell phone, thanking them for their purchase. (I accomplish this by sending the current_user object into the text message model as an argument and using simple string interpolation in the text message body field.) At that point, the current_user is redirected to the Book Downloads Show Page, where the PDF is displayed directly in the browser for the User to read or download. The User table has a "Purchased Book" boolean, default nil, set to false upon create, so I can track who has purchased the book. This is also useful because I created a before_filter to redirect Users to the root_path if a sneaky User attempts to circumvent the purchase by navigating to the book_downloads URL without purchasing. Directly below, you will see the New Charges controller that directs the purchase and notification process.
 
-* Database creation
+ def create
+    charge = Charge.new(current_user, params[:stripeToken])
+    charge.process
+    current_user.purchased_book = true
+    current_user.save
+    message = TextMessage.new(current_user)
+    message.send
+    redirect_to book_downloads_path
+  end
 
-* Database initialization
+Analytics
 
-* How to run the test suite
+Rails 4 came with a default new feature called "Turbolinks". The goal of Turbolinks was to speed up app performance by reloading the body section of a webpage, and not the entire HTML file. (The presumtion being that the navigation bar and footer wouldn't change from page to page.) This feature had the side effect of negatively impacting the performance of javascript and specifically rendering Google Analytics nonfunctional. After consulting with my instructors and a few thoughtbot engineers at lunch, I was told to simply remove Turbolinks completely due to the minor speed increase versus the impacted javascripts. Turbolinks were removed and Google Analytics is now installed and reporting on this app.
 
-* Services (job queues, cache servers, search engines, etc.)
+Testing
 
-* Deployment instructions
+I installed and configured Rspec and FactoryGirl and this app has limited test coverage. At present time, validations are being tested for the User, City, and Cohort Models. Further test coverage is desired and will be under active development.
 
-* ...
+Search
 
+Postgres supports full-string text search oout of the box. I used the pg_search gem due to its multisearch functionality. Multisearch is a single search command that when run will look at all models that have multisearch enabled and return an array of everything it finds as search objects- NOT the actual content object. The search objects that are returned in a multisearch include the "searchable_id" which is the actual object ID and "searchable_type" which is the object class name (ie. "Post"). From these bits of information, we can obviously look up the correct Post using its ID. This method of searching is nice because you can specify what attributes you would like to search for each model individually, enabling you to have control over what fields are searched.
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Mapping
+
+After whitelisting the Address field on the User model params, I was able to use the Geocoder gem to conver the street address into longitude and latidude coordinates. Those coordinates were then inserted into a Google Map HTML snippet so that each City show page (and index pages) would render a clickable Google Map panel, which links to the City show page. .
+
+About Me
+
+I like making beautiful and solid technology products. My name is Jesse Waites and I am a Full-Stack Ruby on Rails Developer. I also have a heavy interest in Front-End - UX/UI design. Formerly a member of United States Air Force, I worked in Trauma and Neurosurgery before following my passion for web development. My path to software development came organically- After being trained in Surgery in the US Air Force, I was working at MGH as a Surgery Technician when the iPhone was announced. I immediately recognized the potential of the device- That thing wasn't a phone, it was a computer with sensors. I was fascinated. I followed the iPhone closely and when the App Store was announced, I hired a software developer to build a Medical Terminology and Abbreviations iOS app. I will always be proud of the recognition of being one of the first Developers in the worlds first App Store. From there I began learning web design, starting with Wordpress and moving to Rails. 
+
+I <3 web development.

@@ -41,6 +41,7 @@ gem 'devise_invitable'
 gem 'github_api'
 gem 'chartkick'
 gem 'groupdate'
+gem 'font-awesome-rails'
 
 
 group :development do

@@ -1,12 +1,7 @@
-<h1><%= @city.name %>, <%= @city.state %></h1>
-
-<%= render 'map' %>
-
 <h2><%= @city.address %></h2>
-
-<% @city.users.each do |user| %>
-<ul><%= link_to user.name, user %></ul>
-<% end %>
+<div>
+<%= render 'map' %>
+</div>
 
 <div class="cohort_grid">
   <% @city.users.each do |user| %>

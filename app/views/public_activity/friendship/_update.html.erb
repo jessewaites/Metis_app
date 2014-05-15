@@ -1,4 +1,7 @@
 was followed by
 <% if activity.trackable %>
   <strong> <%= link_to activity.trackable.friend.name, activity.trackable.friend %></strong>
+  <% else %>
+  a user that has been removed from your feed.
 <% end %>
+<hr>

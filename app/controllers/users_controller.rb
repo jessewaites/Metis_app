@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     rescue Github::Error::Forbidden
       []
     end
+    @statuses = @user.statuses.order('created_at DESC')
     #@repos = repos.select { |r| r.fork == true }
   end
 
