@@ -11,6 +11,9 @@ class UsersController < ApplicationController
       github.repos.list(user: @user.github_username)
     rescue Github::Error::Forbidden
       []
+    rescue Github::Error::NotFound
+      flash[:notice] = "This user has no valid Github Repository."
+      []
     end
     @statuses = @user.statuses.order('created_at DESC')
     #@repos = repos.select { |r| r.fork == true }

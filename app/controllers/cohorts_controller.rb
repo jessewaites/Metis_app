@@ -48,7 +48,10 @@ class CohortsController < ApplicationController
   end
   
   def find_cohort
-    Cohort.find(params[:id])
+    target = params[:id]
+    array = target.split('-')
+    Cohort.find_by(quarter: array[0], year: array[1])
+
   end  
 
 end

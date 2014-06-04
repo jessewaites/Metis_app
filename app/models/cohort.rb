@@ -5,4 +5,9 @@ class Cohort < ActiveRecord::Base
 
   validates_presence_of :year
   validates_presence_of :quarter
+
+  def to_param
+    [self.quarter, self.year].join("-")
+  end
+
 end

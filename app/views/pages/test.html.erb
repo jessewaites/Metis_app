@@ -1,75 +1,9 @@
-<div class="compass">
-        <div class="compass-body">
-            <div class="take">
-                <div class="ring"></div>
-            </div>
-            <div class="panel">
-                <div class="hold-bg">
-                    <div class="glass"></div>
-                    <div class="hold-mark">
-                        <div>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-                    <div class="hold-arrows">
-                        <div class="arrow arrow-up"></div>
-                        <div class="arrow arrow-right"></div>
-                        <div class="arrow arrow-down"></div>
-                        <div class="arrow arrow-left"></div>
-                        <div class="arrow-sub arrow-up-right"></div>
-                        <div class="arrow-sub arrow-up-left"></div>
-                        <div class="arrow-sub arrow-down-right"></div>
-                        <div class="arrow-sub arrow-down-left"></div>
-                    </div>
-                    <div class="hold-directions">
-                        <div class="direction direction-n">N</div>
-                        <div class="direction direction-l">L</div>
-                        <div class="direction direction-s">S</div>
-                        <div class="direction direction-o">O</div>
-                        <div class="direction-sub direction-ne">NE</div>
-                        <div class="direction-sub direction-no">NO</div>
-                        <div class="direction-sub direction-se">SE</div>
-                        <div class="direction-sub direction-so">SO</div>
-                    </div>
-                </div>
-                <div class="hold-main-arrow">
-                    <div class="main-arrow"></div>
-                    <div class="main-arrow down"></div>
-                </div>
-                <div class="center"></div>
-            </div>
-        </div>
-    </div>
+<% User.all.each do |user| %>
+<ul>
+<li><%= link_to user.email, "mailto:#{user.email}?Subject=Nice%20meeting%20you%20yesterday%20at%20Metis, #{user.name}!&body=Hi+#{user.name},+I+wanted+to+personally+thank+you+for +coming+by+the+Metis+Demo+Session+and+and+checking+out+my+app.+I+sincerely+enjoyed+speaking+with+you!+I've+attached+my+resume+if+you+wanted+ to+take+a+look.+
+
+Thanks+again!+
+
+Jesse Waites" %></li>
+</ul>
+<% end %>
