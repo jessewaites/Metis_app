@@ -49,6 +49,6 @@ class CitiesController < ApplicationController
   
   def find_city
     City.find(params[:id])
-  end    
+  end
 
 end
